@@ -3,6 +3,8 @@ A proposal and discussion forum to develop and integrate the IPFS protcol stack 
 
 This repo is for open dissussion of the pros and cons of doing that and how best to do it. It is open to anyone, but especially intended for the IPFS, Filecoin, SPAN-AI and general Internet communities. 
 
+Please raise new major discussion themes as issues and add discussion on themes as comments on the issues.
+
 Remember to please:
 -be civil
 -on topic
