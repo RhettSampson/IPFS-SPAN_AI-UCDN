@@ -1,0 +1,202 @@
+To:	Jorge Soares; 'Yiannis Psaras'; David Dias
+Cc:	Jonathan Holt (jonathan@transendx.com); Jaime Llorca; 'ResNetLab'; 'Jonathan Gross'
+Subject:	RE: Protocol Labs RFP decision
+
+From: Rhett sampson <rhett@gtsys.co>  
+Sent: Tuesday, 8 December 2020 12:12 PM 
+To: Jorge Soares <jorge@protocol.ai>; 'Yiannis Psaras' <yiannis@protocol.ai>; David Dias 
+<david@protocol.ai> 
+Cc: Jonathan Holt (jonathan@transendx.com) <jonathan@transendx.com>; Jaime Llorca 
+<jllorca@gmail.com>; 'ResNetLab' <ResNetLab@protocol.ai>; 'Jonathan Gross' <jpgross@protocol.ai> 
+Subject: RE: Protocol Labs RFP decision
+
+Jorge, Yiannis, David and all
+
+Apologies for the delay in replying to your email re our R&D bid. We’ve all been very busy in the back 
+half of 2020! Given our recent submission to the IPFS 2021 
+roadmap  https://github.com/ipfs/roadmap/issues/79 , I thought a more detailed reply would be in 
+order. It’s long but will hopefully help you understand why we think there is such a good fit between our 
+technologies. Here goes:
+
+This must be read in the context of some tectonic shifts in the tech industry and in the movie business 
+during 2020 that further “turns the screws” on TC/IPs ability to deliver:
+a.	Nvidia buying ARM (and Mellanox and Cumulus) changed everything. Overnight Nvidia 
+became not just the biggest network equipment vendor in the world, but bigger than all 
+the rest put together. And it put AI front and centre of the network business. The fit 
+with our SPAN-AI tech is perfect and we are already working with them on building a 
+prototype PoC on their DGX/EGX switches. See below.
+b.	Apart from breaking every network in the world, Covids changed the movie distribution 
+business forever. It broke the power of the cinema “blockbuster” chains. Disney went 
+100% online with Mulan. And Warners went day and date for its entire slate for 2021. 
+These are the two most powerful studios in Hollywood. The rest will follow as sure as 
+night follows day. It will increase load on the Internet significantly. See below.
+
+To answer your specific points:
+
+1.	Intellectual property. Like you, to date we are an R&D organisation. You have been very 
+successful at securing funding to build the results of your research. We have not yet secured 
+funding to build the SPAN-AI prototype PoC. We do have network platform partners to 
+implement on: Nokia and Nvidia. We were hoping that Protocol Labs would provide part of that 
+funding and enable us to secure the balance. As you say, we know exactly what to build; and 
+how to build it. We have protected the “what” by patents to give us an equitable basis to 
+negotiate how we commercialise our IP. The “how” remains our trade secret for the moment. A 
+significant part of the “how” formed part of our second patent which has not yet been 
+published. In the interests of providing insight into that, we have released the architecture in 
+our discussion repo for merging SPAN-AI and IPFS. It was also sent to you as part of our response 
+to RFPs 7 & 8. We understand why it may appear confusing. It requires the benefit of many 
+months, years and decades of background in working out how to do this. We are happy to share 
+some of this with you, starting with your specific questions:
+a.	A general overview of how we combine NRR and NBR. (Note: we use “IPFS” to include 
+the whole protocol suite/stack).
+i.	Combining name resolution routing (NRR), e.g. TCP/IP and IPFS, with name 
+based routing (NBR) is EXACTLY what we are doing. As you say, they are very 
+different approaches. But it turns out they can be unified very simply. NRR, and 
+particularly the IPFS overlay of TCP/IP, is very good at content storage. As 
+everyone agrees, IPFS needs work to store large amounts of content, 
+particularly video, and in retrieving and distributing it. NBR is very good at 
+distribution and is part of the basis of our foundation patent. The two can be 
+combined by concatenating an IPFS hash address with a content name and 
+routing on that. There is a very simple mechanism to allow both TCP/IP and 
+name based routing, either in one combined switch/router or in single purpose 
+switch/routers. Beyond simple routing, machine learning AI adds intelligent 
+routing and intelligent distribution and storage of content in the network. We 
+call this combination intelligent Hybrid Adaptive Routing Design or AI-HARD. 
+This intelligent, non-deterministic routing is required to reach hyper scale. 
+Deterministic routing has reached its limits of growth. The NBR projects such as 
+CCN, ICN and particularly NDN have done an excellent job at laying the 
+foundations for this, particularly the stochastically balanced Pending Interest 
+Tables and Satisfied Interest Tables. AI-HARD combines both NRR and NBR for 
+storage and distribution respectively.
+b.	AI. AI is central to SPAN-AI-HARD. There are a number of component systems:
+i.	Local autonomous AI agent swarms. These, combined with a new multi-level 
+DHT and learned knowledge of demand and network state, provide optimised 
+local storage and distribution. The multi-level DHT comprises three layers: 
+topological, topic and combined. Topology includes local, regional and national 
+DHTs.
+ii.	Global optimising AI’s. These provide global predictive knowledge of users’ 
+consumption/production patterns, application requirements, network 
+conditions (including overlay mesh health), and available resources for proactive 
+optimization.
+iii.	The operational health mesh, AmI-Rendevous, providing smart discovery, 
+configuration, and self-organization services.
+iv.	Jaime Llorca has been modelling next gen network optimisation at Bell Labs for 
+10 years. He says this is the only architecture that works.
+v.	Given wide adoption of SPAN-AI, there will be multiple global optimising AIs. 
+These will need to talk to each other to form a UCDN. This can be achieved by 
+standardising models and parameters across AIs. The global AIs are also 
+responsible for training and distributing agents and collecting mesh data and 
+can therefore enforce standards.
+c.	(Virtualisation). This was not a question but is critical. Containerization of SPAN-AI 
+agents enables a fully cloud switched network, conforming with definitions of virtual 
+network infrastructure. It also enables cloud testing of agent models at scale.
+d.	In-network storage. This is critical. It is a central part of the CCN/ICN/NDN architectures 
+and is one of the core components of SPAN-AI. The network becomes the cloud. Our use 
+of it is completely intentional and will be one of the core demonstrations of our 
+prototype PoC switches.
+e.	Dataplane-aware symmetric Interest-Data packet forwarding. Again this was 
+completely intentional. The Pending Interest Tables (PIT) and Satisfied Interest Tables 
+(SIT), along with optimising AI agents, form a separate control layer in the network that 
+manages storage and forwarding of content in the network “with SDN like capability”. 
+(everything old is new again!)
+f.	IPNS and DNSLink. Content addressing and routing at the network layer versus IPFS 
+overlay on TCP/IP. See above.
+g.	Multi-level DHT. See above. There are many algorithms to choose from, including non-
+deterministic ones such as cuckoo hashing. We are modelling the optimum.
+h.	Storage centric versus distribution/delivery centric. See above.
+i.	In network load balancing. This is an inherent feature of both NDN and SPA. And very 
+nice to have.
+j.	Multicast. This is an inherent feature of both NDN and SPA. And very nice to have.
+k.	(Loop prevention). This is an inherent feature of both NDN and SPA. And very nice to 
+have.
+l.	Simulation. We are modelling in Matlab and using a state of the art optimisation tool. 
+There are many simulators to choose from, but perhaps the best is distributing 
+containerised agent algorithms in cloud hosting services such as AWS and testing at 
+scale. Unfortunately it is also very expensive.
+2.	Track record. You are right, we are a commercial organisation and have taken a different path 
+from you. That doesn’t mean our interests aren’t aligned. We just need to find a way to receive 
+a reasonable return for our investment and IP. You guys have managed to do that already very 
+successfully. We would love to work with you to find a path to that for us. Given the very limited 
+scope for response to the R&D RFPs, let me expand a bit on our track record now:
+a.	Intel and Microsoft (and Nvidia and Nokia and Bell Labs)
+i.	We were the first in the world to obtain a PlayReady 2 SL3000 (4K) security 
+certificate on an open Windows x86 platform. The platform was the 7th 
+generation Skull Canyon. This product was essentially our first Blust design 
+(www.blust.tv ), submitted to Intel about 12 months previously. To quote Kate 
+Burleigh, the CEO of Intel Australia at the time: “You aren’t going to sue us are 
+you Rhett?” My reply: “Do I look crazy Kate? We didn’t want to be in the 
+hardware business. We are more than happy to leave that to you”. Kate (now at 
+Amazon) will confirm this.
+ii.	We helped Intel close a security hole in the previous 6th gen NUC in order to do 
+that. It required working very closely with Intel and Microsoft to satisfy the 
+requirements of PlayReady on the NUC. The comment from William (Bill) Lewis, 
+principal engineer, Intel, at the time was “I wish we’d spoken to you guys 2 
+years ago”. Bill will confirm this. You will note he is a first level contact on my 
+LinkedIn. We also have copies of the confidential email exchanges between us, 
+Intel and Microsoft, sorting out who needed to do what.
+iii.	Intel understood the potential of Blust and SPA (our first protocol 
+implementation) as an open x86, next gen, p2p, content based routing platform 
+for the efficient delivery of movies. They were not able to fund us due to a $5M 
+turnover threshold for their VC investment group. Roland Wooster, at the time 
+Platform Innovation Manager, Desktop Platform Group, will confirm this. Roland 
+(now also a principal engineer at Intel for video applications) is also a first level 
+contact on my LinkedIn. Roland meets regularly with all major Hollywood 
+studios.
+iv.	Our second Blust product design was essentially a Skull Canyon NUC with the 
+world’s first mini-PCIE based Nvidia graphics chip. We worked extensively with 
+Gigabyte on the specs for this. It eventually became Gigabyte’s Brix gaming 
+platform. We worked with Michelle Huang at Gigabyte on this.
+v.	The Blust gaming design, with our SPA network tech, pre-empts the new Nvidia 
+DGX/EGX products by 5 years. Our design strategy and objectives are identical. 
+We even had an ARM design previously. We are implementing a prototype PoC 
+on Nvidia’s DGX and EGX platforms.
+vi.	Nokia understand the potential of SPA. We have a confidential Letter of Intent 
+from Nick Lochrin, Head of Commercial Business Development, Nokia 
+Enterprise. We are developing the first SPAN prototype on Nokia’s SR Linux data 
+centre switch platform.
+vii.	Nick introduced us to Jaime Llorca, then a senior research scientist at Bell Labs. 
+Jaime is now a research professor at NYU, an invaluable member of the GT 
+Systems team and a co-author of our SPAN-AI patent and our white paper. 
+Jaime is one of the leading network modelling and optimisation researchers in 
+the world  https://scholar.google.com/citations?user=KSI2DE0AAAAJ&hl=en
+viii.	Jaime is modelling SPAN-AI right now. Based on 10 years of research at Bell Labs 
+into network optimisation, he is confident it will show significant improvements 
+in efficiency and QoS.
+b.	Hollywood and content retailers. 
+i.	We have been working with every major Hollywood studio for over a decade, in 
+Australia and the US.
+ii.	 In 2009 we brought manufacture on demand (MoD) of original CDs and DVDs in 
+retail stores to Australia. It was deployed in Harvey Norman and Big W. At an in-
+store in Big W, the Australian CEOs of every Hollywood studio and game 
+publisher were present. This can be confirmed by Charlie Davey, then head of 
+home entertainment for Big W.
+iii.	We began R&D on our online delivery technology in 2010, at the direct request 
+of Big W with the support of the studios, led by Warner. Roger Clark, the then 
+CEO of Warner Australia, can confirm this. The classic statement came from 
+Aleisha McAulay, then head of digital at Fox: “The peer word makes us nervous, 
+but we’re coming with you”.
+iv.	We received technical approval from Sony for online distribution of their full 
+catalogue, including 4K, in 2016, from Tim Wright, then VP Worldwide New 
+Media and Technology. Tim is now Principal Technical Program Manager at 
+Amazon. In his approval email he said “Thanks Rhett and Andrej [our head of 
+digital security and ex head of security for Disney]. This [Blust] has technical 
+approval (subject to contractual agreement). Thanks very much for your 
+comprehensive response. If only all licensees were like this! [our emphasis]”
+v.	We are in progress with all the other studios for technical approval. The head of 
+digital security for Disney said to us at a meeting in Burbank: “You solve a huge 
+problem for us in Asia”.
+vi.	We have been in discussions with Paramount in Australia and LA regarding a 
+proof of concept. They were very interested in p2p distribution and crypto. This 
+can be confirmed by Anne Masuda, then senior manager of digital distribution 
+for Paramount, now VP of global SVOD distribution for ViacomCBS.
+vii.	Given recent developments in digital distribution, both Hollywood and 
+technology, we strongly believe we could gain participation by one or more 
+Hollywood studios in a next gen digital distribution PoC.
+
+To quote Humphry Bogart at the end of Casablanca, we “think this is the beginning of a beautiful 
+friendship”. Looking forward to further interesting discussions.
+
+Warmest
+Rhett Sampson
+
+<original email not included>
+ 
